@@ -47,13 +47,13 @@ export default function LoginPage() {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="text-left">
-            <label htmlFor="email" className="block text-sm font-medium text-white">
-              Email
+            <label htmlFor="username" className="block text-sm font-medium text-white">
+              Tên tài khoản
             </label>
             <input
               type="text"
-              id="email"
-              placeholder="name@example.com"
+              id="username"
+              placeholder="Nhập tên tài khoản"
               value={form.username}
               onChange={(e) => setForm({ ...form, username: e.target.value })}
               required

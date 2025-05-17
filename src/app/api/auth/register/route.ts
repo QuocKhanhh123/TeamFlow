@@ -8,9 +8,9 @@ export async function POST(req: NextRequest) {
   try {
     await connectDB()
 
-    const { name, username, password } = await req.json()
+    const { fullname, email, username, password } = await req.json()
 
-    if (!name || !username || !password) {
+    if (!fullname || !email || !username || !password) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
 
@@ -23,7 +23,8 @@ export async function POST(req: NextRequest) {
 
     // Create user
     const newUser = await User.create({
-      name,
+      fullname,
+      email,
       username,
       password: hashedPassword,
     })
@@ -32,7 +33,8 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({
       user: {
         id: newUser._id,
-        name: newUser.name,
+        fullname: newUser.fullname,
+        email: newUser.email,
         username: newUser.username,
       }
     })

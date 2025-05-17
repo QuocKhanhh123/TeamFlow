@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 export default function RegisterPage() {
-  const [form, setForm] = useState({name : '',  username: '', password: '' })
+  const [form, setForm] = useState({email : '',  username: '', fullname: '', password: '' })
   const router = useRouter()
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -30,7 +30,7 @@ export default function RegisterPage() {
             <input
               type="text"
               placeholder="Nguyễn Văn A"
-              onChange={(e) => setForm({ ...form, username: e.target.value })}
+              onChange={(e) => setForm({ ...form, fullname: e.target.value })}
               required
               className="mt-1 w-full rounded-md border border-gray-600 bg-transparent px-4 py-2 text-sm text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
             />
@@ -41,7 +41,18 @@ export default function RegisterPage() {
             <input
               type="text"
               placeholder="name@example.com"
-              onChange={(e) => setForm({ ...form, name: e.target.value })}
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
+              required
+              className="mt-1 w-full rounded-md border border-gray-600 bg-transparent px-4 py-2 text-sm text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+            />
+          </div>
+
+          <div className="text-left">
+            <label className="block text-sm font-medium text-white">Tên tài khoản</label>
+            <input
+              type="text"
+              placeholder="Nhập tên tài khoản"
+              onChange={(e) => setForm({ ...form, username: e.target.value })}
               required
               className="mt-1 w-full rounded-md border border-gray-600 bg-transparent px-4 py-2 text-sm text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
             />
