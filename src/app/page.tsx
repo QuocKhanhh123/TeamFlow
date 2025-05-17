@@ -1,103 +1,88 @@
-import Image from "next/image";
+import Link from "next/link"
+import { ArrowRight } from "lucide-react"
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="flex flex-col min-h-screen bg-slate-900 text-white">
+      {/* Header */}
+      <header className="px-4 lg:px-6 h-14 flex items-center border-b border-slate-700">
+        <Link className="flex items-center justify-center" href="/">
+          <span className="font-bold text-2xl">TaskFlow</span>
+        </Link>
+        <nav className="ml-auto flex gap-4 sm:gap-6">
+          <Link
+            className="text-l font-medium hover:underline underline-offset-4"
+            href="/login"
+          >
+            Đăng nhập
+          </Link>
+          <Link
+            className="text-l font-medium hover:underline underline-offset-4"
+            href="/register"
+          >
+            Đăng ký
+          </Link>
+        </nav>
+      </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+      {/* Hero Section */}
+      <main className="flex-1">
+        <section className="w-full py-20 md:py-32 lg:py-40 xl:py-48 bg-slate-900">
+          <div className="max-w-4xl mx-auto px-4 text-center space-y-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
+              Quản lý dự án hiệu quả với TaskFlow
+            </h1>
+            <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto">
+              Nền tảng quản lý dự án và công việc giúp bạn theo dõi, phân công và
+              hoàn thành công việc một cách hiệu quả.
+            </p>
+            <div className="flex justify-center gap-4 flex-wrap">
+              <Link href="/register">
+                <button className="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition">
+                  Bắt đầu ngay
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </button>
+              </Link>
+              <Link href="/login">
+                <button className="inline-flex items-center px-6 py-3 border border-white text-white font-medium rounded-md hover:bg-white hover:text-slate-900 transition">
+                  Đăng nhập
+                </button>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <section className="w-full py-16 md:py-24 lg:py-20 bg-slate-800">
+          <div className="max-w-6xl mx-auto px-4 grid gap-10 sm:grid-cols-2 md:grid-cols-3 text-left">
+            <div className="space-y-2">
+              <h3 className="text-xl font-bold">Quản lý dự án</h3>
+              <p className="text-slate-300">
+                Tạo và quản lý nhiều dự án cùng lúc với giao diện trực quan.
+              </p>
+            </div>
+            <div className="space-y-2">
+              <h3 className="text-xl font-bold">Theo dõi công việc</h3>
+              <p className="text-slate-300">
+                Tạo, phân công và cập nhật trạng thái công việc dễ dàng.
+              </p>
+            </div>
+            <div className="space-y-2">
+              <h3 className="text-xl font-bold">Cộng tác hiệu quả</h3>
+              <p className="text-slate-300">
+                Bình luận và trao đổi trực tiếp trên từng công việc.
+              </p>
+            </div>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      {/* Footer */}
+      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full border-t border-slate-700 px-4 md:px-6">
+        <p className="text-xs text-slate-400">
+          &copy; {new Date().getFullYear()} TaskFlow. All rights reserved.
+        </p>
       </footer>
     </div>
-  );
+  )
 }
